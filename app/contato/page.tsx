@@ -13,13 +13,18 @@ const links = [
   },
   {
     label: "E-mail",
-    value: "jorge.hashiguchi2005@gmail.com", // TODO: trocar pelo seu e-mail real
+    value: "jorge.hashiguchi2005@gmail.com",
     href: "mailto:jorge.hashiguchi2005@gmail.com",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/jorge-hashiguchi", // TODO: trocar pelo seu LinkedIn real
-    href: "https://linkedin.com/in/jorge-hashiguchi",
+    value: "linkedin.com/in/jorge-hashiguchi",
+    href: "https://www.linkedin.com/in/jorge-hashiguchi/",
+  },
+  {
+    label: "Telefone",
+    value: "+55 (13) 99682-8069",
+    href: "tel:+5513996828069",
   },
 ];
 
@@ -142,7 +147,7 @@ export default function Contato() {
           )}
         </form>
 
-        <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
           {links.map((link) => (
             <a
               key={link.label}

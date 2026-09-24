@@ -1,5 +1,12 @@
 const projects = [
   {
+    title: "Learny",
+    description:
+      "App para ensinar crianças com TEA (Transtorno do Espectro Autista), desenvolvido em grupo (Kastle) na FATEC, com protótipos usáveis já produzidos.",
+    stack: "",
+    href: "/projetos/learny",
+  },
+  {
     title: "Carteira de Investimentos",
     description:
       "Aplicação fullstack em Rust para gestão de carteira: cadastro de ativos, autenticação de usuário e histórico de transações de compra e venda.",
@@ -7,11 +14,11 @@ const projects = [
     href: "https://github.com/JorgeMassaru/rust-fullstack-carteira-investimentos",
   },
   {
-    title: "Learny",
+    title: "Comanda Menu",
     description:
-      "Em breve: descrição detalhada deste projeto.",
-    stack: "",
-    href: "/projetos/learny",
+      "App de serviço de comanda para restaurantes, desenvolvido em grupo como TCC do técnico em Desenvolvimento de Software no SENAI.",
+    stack: "PHP",
+    href: "",
   },
   {
     title: "Convite de Formatura Interativo",
