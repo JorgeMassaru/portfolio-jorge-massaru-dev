@@ -1,25 +1,38 @@
-export function Navbar() {
-  return (
-    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/90 backdrop-blur-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/" className="text-lg font-semibold text-zinc-900">
-          Jorge Massaru
-        </a>
+"use client";
 
-        <div className="flex items-center gap-6 text-sm font-medium text-zinc-700">
-          <a href="/sobre" className="transition hover:text-zinc-900">
-            Sobre
-          </a>
-          <a href="/projetos" className="transition hover:text-zinc-900">
-            Projetos
-          </a>
-          <a href="/experiencia" className="transition hover:text-zinc-900">
-            Experiência
-          </a>
-          <a href="/contato" className="transition hover:text-zinc-900">
-            Contato
-          </a>
-        </div>
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const links = [
+  { href: "/sobre", label: "Sobre" },
+  { href: "/projetos", label: "Projetos" },
+  { href: "/experiencia", label: "Histórico" },
+  { href: "/contato", label: "Contato" },
+];
+
+export function Navbar() {
+  const pathname = usePathname();
+
+  return (
+    <nav className="sticky top-0 z-50 w-full px-6 py-5">
+      <div className="mx-auto flex w-fit max-w-full items-center gap-1 rounded-full bg-white p-2 shadow-sm">
+        {links.map((link) => {
+          const active = pathname === link.href;
+
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wide transition-colors ${
+                active
+                  ? "bg-[#0066ff] text-white"
+                  : "text-zinc-400 hover:text-zinc-600"
+              }`}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );
