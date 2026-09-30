@@ -92,14 +92,20 @@ export default function Experiencia() {
 
 
               <div className="rounded-xl bg-white p-3">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                  <Image
-                    src={item.img}
-                    alt={`Imagem relacionada a ${item.title}`}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                  />
+                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg bg-zinc-100">
+                  {item.img ? (
+                    <Image
+                      src={item.img}
+                      alt={`Imagem relacionada a ${item.title}`}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                    />
+                  ) : (
+                    <span className="text-sm font-medium uppercase tracking-wide text-zinc-400">
+                      Imagem em breve
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
