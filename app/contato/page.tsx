@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { PageHeaderBlue } from "../../components/ui/PageHeaderBlue"
 
 // Pegue sua chave gratuita em https://web3forms.com (só precisa confirmar o e-mail)
 const WEB3FORMS_ACCESS_KEY = "5b13f8d6-3c6a-4bf6-8372-2c869975761f"; // TODO: substituir
@@ -60,106 +61,110 @@ export default function Contato() {
   }
 
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-20">
-      <h1 className="text-4xl font-bold text-zinc-900">Contato</h1>
+    <section className="bg-[#0066ff] px-6 pb-24 pt-32 text-white">
+       <PageHeaderBlue
+        title="Contato"
+        description="Entre em contato comigo — respondo o quanto antes."
+      />
 
-      <p className="mt-4 max-w-2xl text-lg text-zinc-700">
-        Entre em contato comigo — respondo o quanto antes.
-      </p>
+      {/* Cartão branco com um recorte azul-escuro por trás, dando profundidade */}
+      <div className="relative mx-auto mt-16 max-w-6xl">
+        <div className="absolute -bottom-6 -right-4 -top-6 left-4 -z-10 rounded-3xl bg-[#0052cc] sm:-right-6 sm:left-6" />
 
-      <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          {/* Campo-armadilha anti-spam: fica invisível para pessoas, mas bots costumam preencher */}
-          <input
-            type="checkbox"
-            name="botcheck"
-            className="hidden"
-            style={{ display: "none" }}
-            tabIndex={-1}
-            autoComplete="off"
-          />
+        <div className="rounded-3xl bg-white p-8 text-zinc-900 sm:p-12">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              {/* Campo-armadilha anti-spam: invisível para pessoas, mas bots costumam preencher */}
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
 
-          <div>
-            <label
-              htmlFor="nome"
-              className="block text-sm font-medium text-zinc-700"
-            >
-              Nome
-            </label>
-            <input
-              id="nome"
-              name="name"
-              type="text"
-              required
-              className="mt-1 w-full rounded-md border border-zinc-300 px-3 py-2 text-zinc-900 outline-none focus:border-zinc-900"
-            />
+              <div>
+                <label
+                  htmlFor="nome"
+                  className="block font-semibold text-zinc-900"
+                >
+                  Nome
+                </label>
+                <input
+                  id="nome"
+                  name="name"
+                  type="text"
+                  required
+                  className="mt-2 w-full rounded-xl border border-zinc-300 px-4 py-3 text-zinc-900 outline-none focus:border-[#0066ff]"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block font-semibold text-zinc-900"
+                >
+                  E-mail
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  className="mt-2 w-full rounded-xl border border-zinc-300 px-4 py-3 text-zinc-900 outline-none focus:border-[#0066ff]"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="mensagem"
+                  className="block font-semibold text-zinc-900"
+                >
+                  Conteúdo
+                </label>
+                <textarea
+                  id="mensagem"
+                  name="message"
+                  rows={6}
+                  required
+                  className="mt-2 w-full rounded-xl border border-zinc-300 px-4 py-3 text-zinc-900 outline-none focus:border-[#0066ff]"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-fit rounded-full bg-[#0066ff] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0052cc] disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+              </button>
+
+              {status === "sent" && (
+                <p className="text-sm text-green-700">
+                  Mensagem enviada com sucesso! Obrigado pelo contato.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-red-700">
+                  Não foi possível enviar agora. Tente novamente em instantes.
+                </p>
+              )}
+            </form>
+
+            <div className="flex flex-col gap-4">
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="rounded-xl border border-zinc-200 px-6 py-4 shadow-sm transition-colors hover:border-[#0066ff]"
+                >
+                  <p className="font-semibold text-zinc-900">{link.label}</p>
+                  <p className="mt-1 text-sm text-zinc-500">{link.value}</p>
+                </a>
+              ))}
+            </div>
           </div>
-
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-zinc-700"
-            >
-              E-mail
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              className="mt-1 w-full rounded-md border border-zinc-300 px-3 py-2 text-zinc-900 outline-none focus:border-zinc-900"
-            />
-          </div>
-
-          <div>
-            <label
-              htmlFor="mensagem"
-              className="block text-sm font-medium text-zinc-700"
-            >
-              Mensagem
-            </label>
-            <textarea
-              id="mensagem"
-              name="message"
-              rows={5}
-              required
-              className="mt-1 w-full rounded-md border border-zinc-300 px-3 py-2 text-zinc-900 outline-none focus:border-zinc-900"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="mt-2 w-fit rounded-md bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {status === "sending" ? "Enviando..." : "Enviar mensagem"}
-          </button>
-
-          {status === "sent" && (
-            <p className="text-sm text-green-700">
-              Mensagem enviada com sucesso! Obrigado pelo contato.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-sm text-red-700">
-              Não foi possível enviar agora. Tente novamente em instantes.
-            </p>
-          )}
-        </form>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="rounded-lg border border-zinc-200 p-4 transition-colors hover:border-zinc-400"
-            >
-              <p className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-                {link.label}
-              </p>
-              <p className="mt-1 text-zinc-900">{link.value}</p>
-            </a>
-          ))}
         </div>
       </div>
     </section>

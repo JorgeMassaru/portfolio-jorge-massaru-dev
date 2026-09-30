@@ -1,10 +1,11 @@
 import Image from "next/image";
 import jorgeFoto from "../images/jorge-foto.jpeg";
+import { SectionTitle } from "../../components/layout/sobre/SectionTitle";
 
 const habilidadesFrontend = [
   { nome: "GitHub", slug: "github", cor: "181717" },
   { nome: "HTML5", slug: "html5", cor: "E34F26" },
-  { nome: "CSS3", slug: "css3", cor: "1572B6" },
+  { nome: "CSS3", slug: "css", cor: "1572B6" },
   { nome: "JavaScript", slug: "javascript", cor: "F7DF1E" },
   { nome: "React", slug: "react", cor: "61DAFB" },
   { nome: "TypeScript", slug: "typescript", cor: "3178C6" },
@@ -53,10 +54,10 @@ export default function Sobre() {
   return (
     <>
       {/* Quem sou eu */}
-      <section className="bg-[#0066ff] px-6 py-20 text-white">
+      <section className="bg-[#0066ff] px-6 pb-20 pt-32 text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 lg:flex-row lg:justify-between">
           <div className="max-w-2xl">
-            <h1 className="text-3xl font-bold uppercase tracking-wide">
+            <h1 className="text-2xl font-bold uppercase tracking-wide">
               Quem sou eu?
             </h1>
 
@@ -88,22 +89,20 @@ export default function Sobre() {
 
       {/* Habilidades */}
       <section className="bg-white px-6 py-20">
-        <h2 className="text-center text-3xl font-bold uppercase text-[#0066ff]">
-          Habilidades
-        </h2>
+        <SectionTitle>Habilidades</SectionTitle>
 
         <div className="mx-auto mt-12 grid max-w-5xl grid-cols-4 gap-6 sm:grid-cols-8">
           {[...habilidadesFrontend, ...habilidadesBackend].map((skill) => (
             <div
               key={skill.nome}
               title={skill.nome}
-              className="flex aspect-square items-center justify-center rounded-full border border-zinc-200 bg-white p-4 shadow-sm"
+              className="flex aspect-square items-center justify-center rounded-full border border-zinc-200 bg-white p-3 shadow-sm"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`https://cdn.simpleicons.org/${skill.slug}/${skill.cor}`}
                 alt={skill.nome}
-                className="h-full w-full object-contain"
+                className="h-3/4 w-3/4 object-contain"
               />
             </div>
           ))}
@@ -112,9 +111,7 @@ export default function Sobre() {
 
       {/* Formação */}
       <section className="bg-[#0066ff] px-6 py-20">
-        <h2 className="text-center text-3xl font-bold uppercase text-white">
-          Formação
-        </h2>
+        <SectionTitle light>Formação</SectionTitle>
 
         <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
           {formacao.map((item) => (
@@ -135,10 +132,10 @@ export default function Sobre() {
       {/* Fora do código */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-2xl font-bold text-zinc-900">
+          <h2 className="text-2xl font-bold text-[#0066ff]">
             Fora do código
           </h2>
-          <p className="mt-3 text-lg text-zinc-700">
+          <p className="mt-3 text-lg text-[#0066ff]">
             Sou apaixonado por cultura japonesa e adoro explorar esse universo
             nas horas livres — de tecnologia a viagens, é uma curiosidade que
             também me acompanha nos projetos.

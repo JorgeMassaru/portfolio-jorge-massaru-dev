@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Learny() {
   return (
-    <section className="mx-auto w-full max-w-6xl px-6 py-20">
+    <section className="mx-auto w-full max-w-6xl px-6 pb-20 pt-32">
       <Link
         href="/projetos"
         className="text-sm text-zinc-500 hover:text-zinc-900"
@@ -10,7 +10,7 @@ export default function Learny() {
         ← Voltar para projetos
       </Link>
 
-      <h1 className="mt-4 text-4xl font-bold text-zinc-900">Learny</h1>
+      <h1 className="mt-4 text-3xl font-bold text-zinc-900">Learny</h1>
 
       <p className="mt-6 max-w-2xl text-lg text-zinc-700">
         Learny é um aplicativo pensado para ensinar crianças com TEA
