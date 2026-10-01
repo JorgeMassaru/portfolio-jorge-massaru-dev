@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHeaderBlue } from "../../components/ui/PageHeaderBlue";
 import FormaturaDSMImg from "../images/experiencias/foto_formatura_DSM.jpeg";
@@ -7,11 +8,17 @@ import EscolaManual from "../images/experiencias/e.scola_manual_design.png";
 import CertificadoDS from "../images/experiencias/certificado_DS.png";
 import TelaCMS from "../images/experiencias/tela_cms.png";
 
+export const metadata: Metadata = {
+  title: "Histórico",
+  description: "Experiências acadêmicas e profissionais de Jorge Massaru.",
+};
+
+// Cada item representa uma etapa da formação ou experiência profissional.
 const timeline = [
   {
     period: "Univesp — Atual",
     title: "Engenharia de Computação",
-    description: "Formação em andamento, em paralelo à atuação profissional.",
+    description: "Formação em andamento.",
     img: undefined,
   },
   {
@@ -26,7 +33,7 @@ const timeline = [
     period: "Compass UOL — Estágio",
     title: "Projeto de Bolsas",
     description:
-      "Programei bastante com Java e Spring Boot durante a FATEC, ganhando prática real de back-end em um ambiente profissional.",
+      "Programei com Java e Spring Boot durante o estágio, ganhando prática de back-end em um ambiente profissional e participando das entregas e reuniões diárias da equipe.",
     img: CompassCetificado,
     href: undefined,
   },
@@ -54,6 +61,7 @@ const timeline = [
     img: EscolaManual,
     href: undefined
   },
+
   {
     period: "SENAI Registro",
     title: "Técnico em Desenvolvimento de Sistemas",
@@ -62,6 +70,7 @@ const timeline = [
     img: CertificadoDS,
     href: undefined
   },
+
 ];
 
 export default function Experiencia() {
@@ -72,6 +81,7 @@ export default function Experiencia() {
         description="Conheça alguns dos projetos que desenvolvi ao longo da minha formação e experiência."
       />
 
+      {/* Linha do tempo com detalhes e registro visual de cada etapa. */}
       <ol className="relative mx-auto mt-20 max-w-5xl border-l-2 border-white/40 pl-10 sm:pl-16">
         {timeline.map((item) => (
           <li key={item.period} className="relative pb-16 last:pb-0">
@@ -112,6 +122,17 @@ export default function Experiencia() {
           </li>
         ))}
       </ol>
+      <div className="mx-auto mt-8 max-w-5xl text-center">
+        <p className="text-xs leading-relaxed text-white/60">
+          <span className="font-semibold text-white/70">
+            Laboratório de Práticas (LP):
+          </span>{" "}
+          atividade acadêmica que simula um ambiente corporativo, com reuniões
+          semanais, equipes, responsabilidades e entregáveis. A cada semestre,
+          três turmas da faculdade trabalham em conjunto no desenvolvimento de
+          um produto real para uma empresa real.
+        </p>
+      </div>
     </section>
   );
 }

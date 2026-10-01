@@ -7,7 +7,7 @@ export function ProjectColumn({ projects }: { projects: Project[] }) {
   const [expandedIndex, setExpandedIndex] = useState(0);
 
   return (
-    <div className="flex h-[34rem] flex-col gap-6">
+    <div className="flex h-[22rem] flex-col gap-4 sm:h-[28rem] sm:gap-6 lg:h-[34rem]">
       {projects.map((project, index) => (
         <ProjectCard
           key={project.title}

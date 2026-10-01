@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Jorge Massaru
 
-## Getting Started
+Portfólio pessoal desenvolvido com Next.js App Router, React, TypeScript e Tailwind CSS. Reúne apresentação, formação, experiência, projetos e canais de contato.
 
-First, run the development server:
+## Começar
+
+Requisitos: Node.js e npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+app/
+	contato/                 Página e metadata de contato
+	experiencia/             Linha do tempo acadêmica e profissional
+	projetos/                Catálogo de projetos
+		ComandaMenu/           Detalhes do projeto Comanda Menu
+		learny/                Detalhes do projeto Learny
+	sobre/                   Apresentação, habilidades e formação
+	images/                  Imagens usadas nas páginas
+	layout.tsx               Layout compartilhado e metadata padrão
+	page.tsx                 Página inicial
+	globals.css              Estilos e tokens globais
+components/
+	contact/                 Formulário interativo
+	layout/                  Navegação e rodapé
+	projects/                Cartões e colunas de projetos
+	ui/                      Cabeçalhos e elementos compartilhados
+```
 
-## Learn More
+## Organização do código
 
-To learn more about Next.js, take a look at the following resources:
+- Cada pasta dentro de `app/` representa uma rota. O `page.tsx` da rota mantém o conteúdo específico e sua metadata.
+- As páginas permanecem como Server Components por padrão. A interatividade fica nos componentes client, como o formulário e os cartões de projeto.
+- Componentes reutilizáveis ficam em `components/`, agrupados pelo domínio ou função.
+- Comentários curtos identificam seções e explicam comportamentos menos óbvios; o JSX e os nomes devem explicar o restante.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev      # desenvolvimento
+npm run lint     # análise estática
+npm run build    # build de produção
+npm start        # servir o build de produção
+```
 
-## Deploy on Vercel
+## Adicionar um projeto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Cadastre título, descrição, tecnologias, destino e imagem na lista `projects` em `app/projetos/page.tsx`.
+2. Coloque imagens próprias em `app/images/projects/` e importe-as na página.
+3. Se o projeto precisar de detalhes, crie uma rota em `app/projetos/` e aponte o campo `href` para ela.

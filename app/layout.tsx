@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jorge Massaru | Desenvolvedor & Designer",
+  title: {
+    default: "Jorge Massaru | Desenvolvedor & Designer",
+    template: "%s | Jorge Massaru",
+  },
   description:
     "Portfólio de Jorge Massaru, desenvolvedor de software e designer UX/UI.",
 };
@@ -31,6 +34,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-screen flex flex-col">
+        {/* Navegação e rodapé são compartilhados por todas as rotas. */}
         <Navbar />
 
         <main className="flex-1">

@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import jorgeFoto from "../images/jorge-foto.jpeg";
-import { SectionTitle } from "../../components/layout/sobre/SectionTitle";
+import { SectionTitle } from "../../components/ui/SectionTitle";
 
+export const metadata: Metadata = {
+  title: "Sobre",
+  description: "Conheça a trajetória, habilidades e formação de Jorge Massaru.",
+};
+
+// Habilidades apresentadas em cada grupo da página.
 const habilidadesFrontend = [
   { nome: "GitHub", slug: "github", cor: "181717" },
   { nome: "HTML5", slug: "html5", cor: "E34F26" },
@@ -37,31 +44,31 @@ const formacao = [
       "Concluído em julho de 2026, com passagem por front-end, back-end, cloud e engenharia de software.",
   },
   {
-    titulo: "Técnico em Desenvolvimento de Software",
+    titulo: "Técnico em Desenvolvimento de Sistemas",
     instituicao: "SENAI Registro",
     descricao:
-      'TCC em grupo: "Comanda Menu", um app de serviço de comanda para restaurantes, desenvolvido em PHP.',
+      'Projeto Integrador: "Comanda Menu", um app de serviço de comanda para restaurantes, desenvolvido em PHP. Balança Solidária, um projeto com Arduino que mede peso e envia dados para um app web.',
   },
   {
     titulo: "Cursos extras",
     instituicao: "SENAI · FATEC · Santander",
     descricao:
-      "Google Cloud Foundation, Desenvolvimento Front-end e o Bootcamp Santander de Rust e IA.",
+      "Google Cloud Foundation, Desenvolvimento Front-end e o Bootcamp Santander de Rust e IA, entre outros cursos de curta duração.",
   },
 ];
 
 export default function Sobre() {
   return (
     <>
-      {/* Quem sou eu */}
+      {/* Apresentação pessoal. */}
       <section className="bg-[#0066ff] px-6 pb-20 pt-32 text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 lg:flex-row lg:justify-between">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl">
             <h1 className="text-2xl font-bold uppercase tracking-wide">
               Quem sou eu?
             </h1>
 
-            <p className="mt-6 text-lg leading-relaxed">
+            <p className="mt-6 text-left text-lg leading-relaxed sm:text-justify">
               Sou Jorge Massaru, formado em Desenvolvimento de Software
               Multiplataforma (DSM) pela FATEC Registro e atualmente cursando
               Engenharia de Computação na Univesp. Busco oportunidades como
@@ -70,7 +77,7 @@ export default function Sobre() {
               Spring Boot.
             </p>
 
-            <p className="mt-4 text-lg leading-relaxed">
+            <p className="mt-4 text-left text-lg leading-relaxed sm:text-justify">
               Além do back-end, transito com conforto por front-end e cloud, e
               carrego um diferencial pouco comum: liderei ciclos de UX/UI em
               projetos acadêmicos na FATEC, evoluindo de designer a
@@ -82,26 +89,28 @@ export default function Sobre() {
           <Image
             src={jorgeFoto}
             alt="Jorge Massaru na formatura"
-            className="h-56 w-56 shrink-0 rounded-full object-cover ring-4 ring-white lg:h-64 lg:w-64"
+            className="h-40 w-40 shrink-0 rounded-full object-cover ring-4 ring-white sm:h-56 sm:w-56 lg:h-64 lg:w-64"
           />
         </div>
       </section>
 
-      {/* Habilidades */}
+      {/* Tecnologias e ferramentas. */}
       <section className="bg-white px-6 py-20">
         <SectionTitle>Habilidades</SectionTitle>
 
-        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-4 gap-6 sm:grid-cols-8">
+        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-4 gap-3 sm:gap-6 sm:grid-cols-8">
           {[...habilidadesFrontend, ...habilidadesBackend].map((skill) => (
             <div
               key={skill.nome}
               title={skill.nome}
-              className="flex aspect-square items-center justify-center rounded-full border border-zinc-200 bg-white p-3 shadow-sm"
+              className="flex aspect-square items-center justify-center rounded-full border border-zinc-200 bg-white p-2 shadow-sm sm:p-3"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={`https://cdn.simpleicons.org/${skill.slug}/${skill.cor}`}
                 alt={skill.nome}
+                width={64}
+                height={64}
+                unoptimized
                 className="h-3/4 w-3/4 object-contain"
               />
             </div>
@@ -109,7 +118,7 @@ export default function Sobre() {
         </div>
       </section>
 
-      {/* Formação */}
+      {/* Formação acadêmica e cursos complementares. */}
       <section className="bg-[#0066ff] px-6 py-20">
         <SectionTitle light>Formação</SectionTitle>
 
@@ -129,13 +138,13 @@ export default function Sobre() {
         </div>
       </section>
 
-      {/* Fora do código */}
+      {/* Interesses pessoais. */}
       <section className="bg-white px-6 py-20">
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-5xl">
           <h2 className="text-2xl font-bold text-[#0066ff]">
             Fora do código
           </h2>
-          <p className="mt-3 text-lg text-[#0066ff]">
+          <p className="mt-3 text-left text-lg text-[#0066ff] sm:text-justify">
             Sou apaixonado por cultura japonesa e adoro explorar esse universo
             nas horas livres — de tecnologia a viagens, é uma curiosidade que
             também me acompanha nos projetos.
