@@ -14,7 +14,7 @@ export default function ComandaMenu() {
       description="Comanda Menu é uma aplicação para apoiar o serviço por comandas em restaurantes. O projeto foi desenvolvido em grupo durante o curso Técnico em Desenvolvimento de Sistemas no SENAI Registro."
       info={{
         context: "Projeto acadêmico em grupo — SENAI Registro",
-        technologies: "PHP · MySQL · HTML · CSS · JavaScript",
+        technologies: "PHP · MySQL",
         objective:
           "Organizar o atendimento por comandas em restaurantes.",
         github: "https://github.com/JorgeMassaru/comanda_menu",
@@ -26,8 +26,7 @@ export default function ComandaMenu() {
 
       <p className="mt-3 text-lg text-zinc-700 text-justify">
         A aplicação foi criada como projeto de conclusão do curso técnico,
-        em equipe, usando PHP e MySQL. Atuei principalmente como
-        desenvolvedor Front-end, contribuindo também com o Back-end.
+        em equipe, usando PHP e MySQL. Eu fui o desenvolvedor Front-end.
       </p>
     </ProjectPage>
   );

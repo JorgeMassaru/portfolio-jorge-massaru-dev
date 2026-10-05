@@ -5,6 +5,7 @@ import { PageHeader } from "../../components/ui/PageHeader";
 import learnyImage from "../images/projects/learny.png";
 import comandaImage from "../images/projects/comanda.png";
 import XadrezImagem from "../images/projects/xadrez.jpg";
+import PokeApi from "../images/projects/pokedex_image.png";
 
 export const metadata: Metadata = {
   title: "Projetos",
@@ -21,12 +22,20 @@ const projects: Project[] = [
     href: "/projetos/learny",
     image: learnyImage,
   },
+    {
+    title: "Pokédex",
+    description:
+      "Aplicação web desenvolvida na FATEC para estudos de Flask, consumo de API e integração com banco de dados, utilizando a PokeAPI para consultar informações sobre Pokémon.",
+    stack: "Python · Flask · SQLite · PokeAPI",
+    href: "/projetos/pokedex",
+    image: PokeApi,
+  },
   {
     title: "Sistema de Xadrez",
     description:
       "Aplicação Back-end em Java, com arquitetura REST, para gerenciar partidas de xadrez, incluindo persistência de dados em banco Mysql.",
     stack: "Java · Spring Boot · Mysql",
-    href: "https://github.com/JorgeMassaru/java-chess",
+    href: "/projetos/xadrez",
     image: XadrezImagem
   },
   {

@@ -1,0 +1,154 @@
+.home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  gap: 2.5rem; /* gap-10 */
+  min-height: 100svh;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #0066ff;
+  color: #fff;
+}
+
+@media (min-width: 1024px) {
+  .home {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    padding-top: 6vh;
+    padding-bottom: 0;
+  }
+}
+
+/* Assinatura decorativa no canto superior esquerdo */
+.assinatura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68vw;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .assinatura {
+    width: 34.9vw;
+  }
+}
+
+/* Bloco de texto (nome + cargo) */
+.sobre_div {
+  position: relative;
+  z-index: 10;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .sobre_div {
+    flex: 1 1 0%;
+    padding-left: 9vw;
+    padding-right: 0;
+  }
+}
+
+.titulo {
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.25; /* leading-tight */
+  font-size: clamp(1.35rem, 1.7vw, 2.5rem);
+}
+
+.subtitulo {
+  margin-top: 0.75rem;
+  max-width: 28rem;
+  text-transform: none;
+  font-weight: 500;
+  line-height: 1.375; /* leading-snug */
+  font-size: clamp(0.95rem, 1.15vw, 1.5rem);
+}
+
+@media (min-width: 1024px) {
+  .subtitulo {
+    max-width: 28vw;
+  }
+}
+
+/* Pílula branca com a foto e o botão */
+.foto_pilula {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* gap-4 */
+  margin-left: 1.5rem; /* ml-6 */
+  padding: 1rem; /* py-4 px-4 */
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  background-color: #fff;
+}
+
+@media (min-width: 1024px) {
+  .foto_pilula {
+    margin-left: auto;
+    gap: 4vw;
+    padding-top: 2.2vw;
+    padding-bottom: 2.2vw;
+    padding-left: 2.2vw;
+    padding-right: 3.4vw;
+  }
+}
+
+.foto {
+  flex-shrink: 0;
+  width: 44vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  object-fit: cover;
+  pointer-events: none;
+  /* anel (ring-2 ring-zinc-300) + sombra suave */
+  box-shadow:
+    0 0 0 2px #d4d4d8,
+    0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 1024px) {
+  .foto {
+    width: 24vw;
+  }
+}
+
+.botao_seta {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 12vw;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  background-color: #0066ff;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.botao_seta:hover {
+  transform: scale(1.05);
+}
+
+.botao_seta:focus-visible {
+  outline: 2px solid #0066ff;
+  outline-offset: 4px;
+}
+
+@media (min-width: 1024px) {
+  .botao_seta {
+    width: 5.8vw;
+  }
+}
+
+.icone_seta {
+  width: 60%;
+}
