@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { ProjectInfo } from "./ProjectInfo";
 import { ProjectGallery } from "./ProjectGallery";
+import type { StaticImageData } from "next/image";
 
 type ProjectImage = {
-  src: string;
+  src: StaticImageData;
   alt: string;
 };
 
