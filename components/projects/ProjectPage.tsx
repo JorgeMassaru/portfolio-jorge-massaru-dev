@@ -1,5 +1,11 @@
 import Link from "next/link";
 import { ProjectInfo } from "./ProjectInfo";
+import { ProjectGallery } from "./ProjectGallery";
+
+type ProjectImage = {
+  src: string;
+  alt: string;
+};
 
 type ProjectPageProps = {
   title: string;
@@ -10,6 +16,7 @@ type ProjectPageProps = {
     objective: string;
     github: string;
   };
+  images?: ProjectImage[];
   children: React.ReactNode;
 };
 
@@ -17,6 +24,7 @@ export function ProjectPage({
   title,
   description,
   info,
+  images,
   children,
 }: ProjectPageProps) {
   return (
@@ -37,6 +45,10 @@ export function ProjectPage({
       <ProjectInfo {...info} />
 
       <div className="mt-16 max-w-6xl">{children}</div>
+
+      {images && images.length > 0 && (
+        <ProjectGallery images={images} />
+      )}
     </section>
   );
 }

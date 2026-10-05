@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { ProjectPage } from "../../../components/projects/ProjectPage";
 
+import telaInicial from "./images/tela_fase_1.png";
+import telaFases from "./images/fase_1_atv.png";
+import telaPais from "./images/tela_pais_feedback.png";
+
 export const metadata: Metadata = {
   title: "Learny",
   description: "Conheça o projeto Learny e minha participação no grupo Kastle.",
@@ -18,6 +22,20 @@ export default function Learny() {
           "Desenvolver uma ferramenta de aprendizagem acessível para crianças com TEA.",
         github: "https://github.com/JorgeMassaru/learny-mobile",
       }}
+      images={[
+        {
+          src: telaInicial,
+          alt: "Tela inicial do Learny",
+        },
+        {
+          src: telaFases,
+          alt: "Tela de fases do Learny",
+        },
+        {
+          src: telaPais,
+          alt: "Tela de Pais do Learny",
+        },
+      ]}
     >
       <h2 className="text-xl font-semibold text-zinc-900">
         O processo

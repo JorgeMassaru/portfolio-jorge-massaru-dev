@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { ProjectPage } from "../../../components/projects/ProjectPage";
 
+import telaPokedex from "./images/pokedex_img.png";
+import telaApiPokemon from "./images/api_pokemon.png";
+
 export const metadata: Metadata = {
   title: "Pokédex",
   description:
@@ -19,6 +22,16 @@ export default function Pokeapi() {
           "Praticar desenvolvimento web, consumo de APIs e integração com banco de dados.",
         github: "https://github.com/JorgeMassaru/pokedex_python",
       }}
+           images={[
+              {
+                src: telaPokedex,
+                alt: "Tela da Pokédex",
+              },
+              {
+                src: telaApiPokemon,
+                alt: "Tela da API Pokédex",
+              },
+            ]}
     >
       <h2 className="text-xl font-semibold text-zinc-900">
         Sobre o projeto
