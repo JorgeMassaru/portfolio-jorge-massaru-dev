@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ProjectInfo } from "./ProjectInfo";
 import { ProjectGallery } from "./ProjectGallery";
 import type { StaticImageData } from "next/image";
+import { useLanguage } from "../i18n/LanguageContext";
 
 type ProjectImage = {
   src: StaticImageData;
@@ -28,13 +31,15 @@ export function ProjectPage({
   images,
   children,
 }: ProjectPageProps) {
+  const { t } = useLanguage();
+
   return (
     <section className="mx-auto w-full max-w-6xl px-6 pb-20 pt-32">
       <Link
         href="/projetos"
         className="text-sm text-zinc-500 hover:text-zinc-900"
       >
-        ← Voltar para projetos
+        {t.projects.back}
       </Link>
 
       <h1 className="mt-4 text-3xl font-bold text-zinc-900">{title}</h1>

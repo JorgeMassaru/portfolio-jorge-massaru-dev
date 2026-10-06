@@ -2,6 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 type ProjectImage = {
   src: StaticImageData;
@@ -13,6 +14,7 @@ type ProjectGalleryProps = {
 };
 
 export function ProjectGallery({ images }: ProjectGalleryProps) {
+  const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<ProjectImage | null>(
     null
   );
@@ -82,7 +84,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
     <>
       <div className="mt-16">
         <h2 className="text-xl font-semibold text-zinc-900">
-          Imagens do projeto
+          {t.projects.gallery}
         </h2>
 
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -98,6 +100,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
                   src={image.src}
                   alt={image.alt}
                   fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                 />
               </div>
@@ -151,7 +154,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
                 type="button"
                 onClick={decreaseZoom}
                 className="cursor-pointer rounded px-3 py-1 text-xl text-white hover:bg-white/20"
-                aria-label="Diminuir zoom"
+                aria-label={t.projects.decreaseZoom}
               >
                 −
               </button>
@@ -168,7 +171,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
                 type="button"
                 onClick={increaseZoom}
                 className="cursor-pointer rounded px-3 py-1 text-xl text-white hover:bg-white/20"
-                aria-label="Aumentar zoom"
+                aria-label={t.projects.increaseZoom}
               >
                 +
               </button>
@@ -179,7 +182,7 @@ export function ProjectGallery({ images }: ProjectGalleryProps) {
               type="button"
               onClick={closeImage}
               className="absolute right-3 top-3 cursor-pointer rounded-full bg-black/70 px-3 py-1 text-xl text-white hover:bg-black"
-              aria-label="Fechar imagem"
+              aria-label={t.projects.closeImage}
             >
               ×
             </button>

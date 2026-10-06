@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 // Chave de integração usada pelo cliente Web3Forms para enviar o formulário.
 const WEB3FORMS_ACCESS_KEY = "5b13f8d6-3c6a-4bf6-8372-2c869975761f";
@@ -8,6 +9,7 @@ const WEB3FORMS_ACCESS_KEY = "5b13f8d6-3c6a-4bf6-8372-2c869975761f";
 type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
+  const { t } = useLanguage();
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -52,7 +54,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="nome" className="block font-semibold text-zinc-900">
-          Nome
+          {t.contact.name}
         </label>
         <input
           id="nome"
@@ -66,7 +68,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="email" className="block font-semibold text-zinc-900">
-          E-mail
+          {t.contact.email}
         </label>
         <input
           id="email"
@@ -83,7 +85,7 @@ export function ContactForm() {
           htmlFor="mensagem"
           className="block font-semibold text-zinc-900"
         >
-          Conteúdo
+          {t.contact.message}
         </label>
         <textarea
           id="mensagem"
@@ -99,7 +101,7 @@ export function ContactForm() {
         disabled={status === "sending"}
         className="w-fit rounded-full bg-[#0066ff] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#0052cc] disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "sending" ? "Enviando..." : "Enviar mensagem"}
+        {status === "sending" ? t.contact.sending : t.contact.send}
       </button>
 
       {status !== "idle" && (
@@ -114,11 +116,9 @@ export function ContactForm() {
                 : "text-zinc-600"
           }`}
         >
-          {status === "sending" && "Enviando mensagem..."}
-          {status === "sent" &&
-            "Mensagem enviada com sucesso! Obrigado pelo contato."}
-          {status === "error" &&
-            "Não foi possível enviar agora. Tente novamente em instantes."}
+          {status === "sending" && t.contact.sendingMessage}
+          {status === "sent" && t.contact.sent}
+          {status === "error" && t.contact.error}
         </p>
       )}
     </form>

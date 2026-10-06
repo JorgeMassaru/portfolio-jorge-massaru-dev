@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "../i18n/LanguageContext";
+
 type ProjectInfoProps = {
   context: string;
   technologies: string;
@@ -11,32 +15,34 @@ export function ProjectInfo({
   objective,
   github,
 }: ProjectInfoProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <div className="rounded-lg border border-zinc-200 p-6">
         <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-          Contexto
+          {t.projects.context}
         </h2>
         <p className="mt-2 text-zinc-900">{context}</p>
       </div>
 
       <div className="rounded-lg border border-zinc-200 p-6">
         <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-          Tecnologias
+          {t.projects.technologies}
         </h2>
         <p className="mt-2 text-zinc-900">{technologies}</p>
       </div>
 
       <div className="rounded-lg border border-zinc-200 p-6">
         <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-          Objetivo
+          {t.projects.objective}
         </h2>
         <p className="mt-2 text-zinc-900">{objective}</p>
       </div>
 
       <div className="rounded-lg border border-zinc-200 p-6">
         <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-          Link do projeto
+          {t.projects.projectLink}
         </h2>
 
         <a
