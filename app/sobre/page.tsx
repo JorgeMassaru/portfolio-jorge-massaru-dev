@@ -18,16 +18,28 @@ const habilidadesFrontend = [
   { nome: "TypeScript", slug: "typescript", cor: "3178C6" },
   { nome: "Next.js", slug: "nextdotjs", cor: "000000" },
   { nome: "Tailwind CSS", slug: "tailwindcss", cor: "06B6D4" },
+  { nome: "Bootstrap", slug: "bootstrap", cor: "7952B3" },
 ];
 
 const habilidadesBackend = [
   { nome: "Java", slug: "openjdk", cor: "437291" },
   { nome: "PHP", slug: "php", cor: "777BB4" },
   { nome: "Python", slug: "python", cor: "3776AB" },
-  { nome: "MySQL", slug: "mysql", cor: "4479A1" },
-  { nome: "PostgreSQL", slug: "postgresql", cor: "4169E1" },
-  { nome: "SQLite", slug: "sqlite", cor: "003B57" },
   { nome: "Rust", slug: "rust", cor: "000000" },
+  { nome: "Spring Boot", slug: "springboot", cor: "6DB33F" },
+  { nome: "Flask", slug: "flask", cor: "000000" },
+  { nome: "Django", slug: "django", cor: "092E20" },
+  { nome: "MySQL", slug: "mysql", cor: "4479A1" },
+  { nome: "MariaDB", slug: "mariadb", cor: "003545" },
+  { nome: "MongoDB", slug: "mongodb", cor: "47A248" },
+  { nome: "SQLite", slug: "sqlite", cor: "003B57" },
+  { nome: "PostgreSQL", slug: "postgresql", cor: "4169E1" },
+  { nome: "RabbitMQ", slug: "rabbitmq", cor: "FF6600" },
+];
+
+const habilidadesFerramentas = [
+  { nome: "Docker", slug: "docker", cor: "2496ED" },
+  { nome: "Swagger", slug: "swagger", cor: "85EA2D" },
   { nome: "Figma", slug: "figma", cor: "F24E1E" },
 ];
 
@@ -98,8 +110,12 @@ export default function Sobre() {
       <section className="bg-white px-6 py-20">
         <SectionTitle>Habilidades</SectionTitle>
 
-        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-4 gap-3 sm:gap-6 sm:grid-cols-8">
-          {[...habilidadesFrontend, ...habilidadesBackend].map((skill) => (
+        <div className="mx-auto mt-12 grid max-w-5xl grid-cols-4 gap-3 sm:grid-cols-8 sm:gap-6">
+          {[
+            ...habilidadesFrontend,
+            ...habilidadesBackend,
+            ...habilidadesFerramentas,
+          ].map((skill) => (
             <div
               key={skill.nome}
               title={skill.nome}
@@ -129,10 +145,14 @@ export default function Sobre() {
               className="rounded-lg bg-[#0052cc] p-6 text-white"
             >
               <h3 className="text-lg font-bold uppercase">{item.titulo}</h3>
+
               <p className="text-sm uppercase text-white/70">
                 {item.instituicao}
               </p>
-              <p className="mt-3 text-sm text-white/90">{item.descricao}</p>
+
+              <p className="mt-3 text-sm text-white/90">
+                {item.descricao}
+              </p>
             </div>
           ))}
         </div>
@@ -144,6 +164,7 @@ export default function Sobre() {
           <h2 className="text-2xl font-bold text-[#0066ff]">
             Fora do código
           </h2>
+
           <p className="mt-3 text-left text-lg text-[#0066ff] sm:text-justify">
             Sou apaixonado por cultura japonesa e adoro explorar esse universo
             nas horas livres — de tecnologia a viagens, é uma curiosidade que
